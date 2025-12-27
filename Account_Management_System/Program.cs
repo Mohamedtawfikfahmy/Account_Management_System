@@ -58,7 +58,7 @@ public class SavingsAccount : Account
 
 public class CheckingAccount : Account
 {
-    private readonly double withdrawalFee = 1.50;  // replaced const
+    private readonly double withdrawalFee = 1.50;  
 
     public CheckingAccount(string name = "Unnamed Checking Account", double balance = 0.0)
         : base(name, balance)
@@ -92,11 +92,11 @@ public class CheckingAccount : Account
 public class TrustAccount : Account
 {
     public double InterestRate { get; set; }
-    private int withdrawalCount;
-    private readonly int maxWithdrawals = 3;              // replaced const
-    private readonly double maxWithdrawalPercentage = 0.20; // replaced const
-    private readonly double bonusThreshold = 5000.0;       // added for clarity
-    private readonly double bonusAmount = 50.0;            // added for clarity
+     int withdrawalCount;
+     int maxWithdrawals = 3;              
+      double maxWithdrawalPercentage = 0.20; 
+      double bonusThreshold = 5000.0;       
+     double bonusAmount = 50.0;         
 
     public TrustAccount(string name = "Unnamed Trust Account", double balance = 0.0, double interestRate = 0.0)
         : base(name, balance)
@@ -347,6 +347,6 @@ class Program
         AccountUtil.WithdrawTrust(trustAccounts, 500);
 
         Console.WriteLine();
-        Console.ReadKey();
+       
     }
 }
