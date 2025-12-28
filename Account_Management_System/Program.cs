@@ -6,7 +6,7 @@ public class Account
     public string Name { get; set; }
     public double Balance { get; set; }
 
-    public Account(string name = "Unnamed Account", double balance = 0.0)
+    public Account(string name="no account name" , double balance=0 )
     {
         this.Name = name;
         this.Balance = balance;
@@ -36,7 +36,7 @@ public class Account
 
     public override string ToString()
     {
-        return $"[Account: {this.Name}: {this.Balance:C}]";
+        return $"Account: {this.Name}: {this.Balance}";
     }
 }
 
@@ -44,7 +44,7 @@ public class SavingsAccount : Account
 {
     public double InterestRate { get; set; }
 
-    public SavingsAccount(string name = "Unnamed Savings Account", double balance = 0.0, double interestRate = 0.0)
+    public SavingsAccount(string name="no  account name to save" , double balance=0 , double interestRate=0 )
         : base(name, balance)
     {
         this.InterestRate = interestRate;
@@ -52,15 +52,15 @@ public class SavingsAccount : Account
 
     public override string ToString()
     {
-        return $"[Savings Account: {this.Name}: {this.Balance:C}, Interest Rate: {this.InterestRate}%]";
+        return $"Savings Account: {this.Name}: {this.Balance}, Interest Rate: {this.InterestRate}%";
     }
 }
 
 public class CheckingAccount : Account
 {
-    private readonly double withdrawalFee = 1.50;  
+     double withdrawalFee = 1.50;  
 
-    public CheckingAccount(string name = "Unnamed Checking Account", double balance = 0.0)
+    public CheckingAccount(string name="no account name to check " , double balance=0 )
         : base(name, balance)
     {
     }
@@ -85,7 +85,7 @@ public class CheckingAccount : Account
 
     public override string ToString()
     {
-        return $"[Checking Account: {this.Name}: {this.Balance:C}]";
+        return $"Checking Account: {this.Name}: {this.Balance}";
     }
 }
 
@@ -98,7 +98,7 @@ public class TrustAccount : Account
       double bonusThreshold = 5000.0;       
      double bonusAmount = 50.0;         
 
-    public TrustAccount(string name = "Unnamed Trust Account", double balance = 0.0, double interestRate = 0.0)
+    public TrustAccount(string name="no account name to trust" , double balance=0 , double interestRate =0)
         : base(name, balance)
     {
         this.InterestRate = interestRate;
@@ -151,7 +151,7 @@ public class TrustAccount : Account
 
     public override string ToString()
     {
-        return $"[Trust Account: {this.Name}: {this.Balance:C}, Interest Rate: {this.InterestRate}%, Withdrawals: {this.withdrawalCount}/{this.maxWithdrawals}]";
+        return $"Trust Account: {this.Name}: {this.Balance}, Interest Rate: {this.InterestRate}%, Withdrawals: {this.withdrawalCount}/{this.maxWithdrawals}";
     }
 }
 
@@ -159,7 +159,7 @@ public static class AccountUtil
 {
     public static void Deposit(List<Account> accounts, double amount)
     {
-        Console.WriteLine("\n=== Depositing to Accounts =================================");
+        Console.WriteLine("=== Depositing to Accounts =================================");
         for (int i = 0; i < accounts.Count; i++)
         {
             Account acc = accounts[i];
@@ -177,7 +177,7 @@ public static class AccountUtil
 
     public static void Withdraw(List<Account> accounts, double amount)
     {
-        Console.WriteLine("\n=== Withdrawing from Accounts ==============================");
+        Console.WriteLine("=== Withdrawing from Accounts ==============================");
         for (int i = 0; i < accounts.Count; i++)
         {
             Account acc = accounts[i];
@@ -195,7 +195,7 @@ public static class AccountUtil
 
     public static void DepositSavings(List<SavingsAccount> accounts, double amount)
     {
-        Console.WriteLine("\n=== Depositing to Savings Accounts =================================");
+        Console.WriteLine("=== Depositing to Savings Accounts =================================");
         for (int i = 0; i < accounts.Count; i++)
         {
             SavingsAccount acc = accounts[i];
@@ -213,7 +213,7 @@ public static class AccountUtil
 
     public static void WithdrawSavings(List<SavingsAccount> accounts, double amount)
     {
-        Console.WriteLine("\n=== Withdrawing from Savings Accounts ==============================");
+        Console.WriteLine("=== Withdrawing from Savings Accounts ==============================");
         for (int i = 0; i < accounts.Count; i++)
         {
             SavingsAccount acc = accounts[i];
@@ -231,7 +231,7 @@ public static class AccountUtil
 
     public static void DepositChecking(List<CheckingAccount> accounts, double amount)
     {
-        Console.WriteLine("\n=== Depositing to Checking Accounts =================================");
+        Console.WriteLine("=== Depositing to Checking Accounts =================================");
         for (int i = 0; i < accounts.Count; i++)
         {
             CheckingAccount acc = accounts[i];
@@ -249,7 +249,7 @@ public static class AccountUtil
 
     public static void WithdrawChecking(List<CheckingAccount> accounts, double amount)
     {
-        Console.WriteLine("\n=== Withdrawing from Checking Accounts ==============================");
+        Console.WriteLine("=== Withdrawing from Checking Accounts ==============================");
         for (int i = 0; i < accounts.Count; i++)
         {
             CheckingAccount acc = accounts[i];
@@ -267,7 +267,7 @@ public static class AccountUtil
 
     public static void DepositTrust(List<TrustAccount> accounts, double amount)
     {
-        Console.WriteLine("\n=== Depositing to Trust Accounts =================================");
+        Console.WriteLine("=== Depositing to Trust Accounts =================================");
         for (int i = 0; i < accounts.Count; i++)
         {
             TrustAccount acc = accounts[i];
@@ -285,7 +285,7 @@ public static class AccountUtil
 
     public static void WithdrawTrust(List<TrustAccount> accounts, double amount)
     {
-        Console.WriteLine("\n=== Withdrawing from Trust Accounts ==============================");
+        Console.WriteLine("=== Withdrawing from Trust Accounts ===========================");
         for (int i = 0; i < accounts.Count; i++)
         {
             TrustAccount acc = accounts[i];
